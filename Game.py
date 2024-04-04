@@ -1,4 +1,5 @@
 import random
+import sys
 
 class Game:
     def __init__(self):
@@ -16,6 +17,9 @@ class Game:
         print("Select a gun: Pistol, Rifle, Shotgun")
         selected_gun = input("Enter the the gun: ").lower()
         player = Player(selected_gun)
+        if selected_gun not in ('pistol', 'rifle', 'shotgun'):
+            print("Invalid choice. Please enter valid gun out of pistol, rifle, shotgun.")
+            sys.exit()
         while True:
             choice = input("Shoot an animal? (yes/no): ").lower()
             if choice == 'yes':
